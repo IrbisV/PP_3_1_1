@@ -34,7 +34,6 @@
         <th>Delete user</th>
 
     </tr>
-    <tbody>
     <tr th:each="user : ${user}">
 
         <td th:utext="${user.getUserId()}"></td>
@@ -43,17 +42,16 @@
         <td th:utext="${user.getAge()}"></td>
         <td th:utext="${user.getEmail()}"></td>
         <td>
-            <form  th:action="@{/user-update/{userId}(userId=${user.getUserId()})}" th:object="${user}">
+            <form  th:action="@{/user-update/{id}(id=${user.getUserId()})}" th:object="${user}">
                 <button type="submit">Update</button>
             </form>
         </td>
         <td>
-            <form  th:action="@{/{userId}(userId=${user.getUserId()})}" th:object="${user}">
+            <form  th:action="@{/{id}(id=${user.getUserId()})}" th:object="${user}">
                 <button type="submit">Delete</button>
             </form>
         </td>
     </tr>
-    </tbody>
 </table>
 <br>
 <button><a href="user-create">Create user!</a></button>
