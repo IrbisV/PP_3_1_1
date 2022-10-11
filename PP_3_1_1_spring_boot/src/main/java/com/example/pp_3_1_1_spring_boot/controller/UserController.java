@@ -45,7 +45,7 @@ public class UserController {
         return "user-update";
     }
     @PostMapping("/user-update/{id}")
-    public String updateUser(User user){
+    public String updateUser(@PathVariable("id") Long id, User user){
         userService.save(user);
         return "redirect:/users";
     }
