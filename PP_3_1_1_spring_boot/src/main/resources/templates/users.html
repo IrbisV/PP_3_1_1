@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<!--suppress HtmlUnknownTarget -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -34,27 +35,27 @@
         <th>Delete user</th>
 
     </tr>
-    <tr th:each="user : ${user}">
+    <tr th:each="users : ${user}">
 
-        <td th:utext="${user.getUserId()}"></td>
-        <td th:utext="${user.getName()}"></td>
-        <td th:utext="${user.getSurname()}"></td>
-        <td th:utext="${user.getAge()}"></td>
-        <td th:utext="${user.getEmail()}"></td>
+        <td th:text="${users.getId()}"></td>
+        <td th:text="${users.getName()}"></td>
+        <td th:text="${users.getSurname()}"></td>
+        <td th:text="${users.getAge()}"></td>
+        <td th:text="${users.getEmail()}"></td>
         <td>
-            <form  th:action="@{/user-update/{id}(id=${user.getUserId()})}" th:object="${user}">
+            <form  th:action="@{/user-update/{id}(id=${users.getId()})}" th:object="${user}">
                 <button type="submit">Update</button>
             </form>
         </td>
         <td>
-            <form  th:action="@{/{id}(id=${user.getUserId()})}" th:object="${user}">
+            <form  th:action="@{/{id}(id=${users.getId()})}" th:object="${user}">
                 <button type="submit">Delete</button>
             </form>
         </td>
     </tr>
 </table>
 <br>
-<button><a href="/user-create">Create user!</a></button>
+<button><a href="user-create">Create user!</a></button>
 <br>
 </body>
 </html>

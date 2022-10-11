@@ -19,6 +19,7 @@ public class UserController {
     @GetMapping("/")
     public String getAll(Model model) {
         model.addAttribute("user", userService.getAllUsers());
+        System.out.println(userService.getAllUsers().toString());
         return "users";
     }
 
@@ -26,7 +27,6 @@ public class UserController {
     public String createUserForm(Model model) {
         model.addAttribute("user", new User());
         return "user-create";
-
     }
     @PostMapping("/user-create")
     public String createUser(User user){
@@ -45,7 +45,7 @@ public class UserController {
         return "user-update";
     }
     @PostMapping("/user-update/{id}")
-    public String updateUser(@PathVariable("id") Long id, User user){
+    public String updateUser( User user){
         userService.save(user);
         return "redirect:/users";
     }
