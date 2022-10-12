@@ -14,7 +14,7 @@ public class User {
 
     private String surname;
 
-    private Byte age;
+    private Integer age;
     private String email;
 
     public User() {
@@ -24,8 +24,8 @@ public class User {
         return id;
     }
 
-    public void setId(Long userId) {
-        this.id = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -44,11 +44,11 @@ public class User {
         this.surname = surname;
     }
 
-    public byte getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(Byte age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
