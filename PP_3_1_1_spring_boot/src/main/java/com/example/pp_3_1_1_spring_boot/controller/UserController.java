@@ -31,12 +31,12 @@ public class UserController {
     @PostMapping("/user-create")
     public String createUser(@ModelAttribute("user") User user){
         userService.save(user);
-        return "users";
+        return "redirect:/";
     }
     @GetMapping("{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.removeUser(id);
-        return "users";
+        return "redirect:/";
 
     }
     @GetMapping("/user-update/{id}")
@@ -47,6 +47,6 @@ public class UserController {
     @PostMapping("/user-update/{id}")
     public String updateUser( User user){
         userService.save(user);
-        return "users";
+        return "redirect:/";
     }
 }
